@@ -173,7 +173,7 @@ function toggleDark(setDark) {
     setRootColor('subtext', setDark ? "#EAEAEA" : "#3D3D3D")
     setRootColor('notification', setDark ? "#303030" : "#DDDDDD")
 
-    updateColors(mainColor)
+    //updateColors(mainColor)
 }
 
 /* Init with current system light/dark mode */
@@ -213,7 +213,7 @@ async function songchange() {
     if (bgImage === undefined) {
         bgImage = "/images/tracklist-row-song-fallback.svg"
         mainColor = "#509bf5"
-        updateColors(mainColor)
+        //updateColors(mainColor)
     }
 
     if (album_uri !== undefined && !album_uri.includes('spotify:show')) {
@@ -257,7 +257,7 @@ function pickCoverColor(img) {
             mainColor = swatches[cols[col]].getHex()
             break
         }
-    updateColors(mainColor)
+    //updateColors(mainColor)
 }
 
 waitForElement([".cover-art-image"], (queries) => {
@@ -311,6 +311,7 @@ document.styleSheets[0].addRule('.Root__top-container::before',
     backface-visibility: hidden;
     will-change: transform;
     opacity: calc(0.07 + 0.03 * var(--is_light, 0));
+	transition: background 0.5s linear;
     z-index: +3;`)
 
 document.documentElement.style.setProperty('--warning_message', ' ');

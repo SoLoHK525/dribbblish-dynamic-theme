@@ -5,7 +5,7 @@
     --main-corner-radius: 10px;
     --scrollbar-vertical-size: 8px;
     --cover-border-radius: 8px;
-    --os-windows-icon-dodge: 0;
+    --os-windows-icon-dodge: 1;
 }
 
 @font-face {
@@ -36,9 +36,24 @@
     font-weight: 500;
 }
 
+
+@font-face {
+    font-family: "Ubuntu";
+    src: url("glue-resources/fonts/Ubuntu-Regular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Ubuntu";
+    src: url("glue-resources/fonts/Ubuntu-Medium.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 500;
+}
+
 body {
-    --glue-font-family: "Google Sans Display","Roboto",spotify-circular,spotify-circular-cyrillic,spotify-circular-arabic,spotify-circular-hebrew,Helvetica Neue,helvetica,arial,Hiragino Kaku Gothic Pro,Meiryo,MS Gothic,sans-serif;
-    --info-font-family: "Roboto",spotify-circular,spotify-circular-cyrillic,spotify-circular-arabic,spotify-circular-hebrew,Helvetica Neue,helvetica,arial,Hiragino Kaku Gothic Pro,Meiryo,MS Gothic,sans-serif;
+    --glue-font-family: "Ubuntu", "Google Sans Display", "Microsoft JhengHei Bold", "Roboto",spotify-circular,spotify-circular-cyrillic,spotify-circular-arabic,spotify-circular-hebrew,Helvetica Neue,helvetica,arial,Hiragino Kaku Gothic Pro,Meiryo,MS Gothic,sans-serif;
+    --info-font-family: "Ubuntu", "Microsoft JhengHei", "Roboto",spotify-circular,spotify-circular-cyrillic,spotify-circular-arabic,spotify-circular-hebrew,Helvetica Neue,helvetica,arial,Hiragino Kaku Gothic Pro,Meiryo,MS Gothic,sans-serif;
     font-family: var(--glue-font-family);
     letter-spacing: normal;
 }
@@ -267,8 +282,7 @@ span.artist-artistVerifiedBadge-badge svg > path:last-of-type {
 
 .main-nowPlayingBar-container {
     border-radius: 0 0 var(--main-corner-radius) var(--main-corner-radius);
-    background-color: unset;
-    background: radial-gradient(ellipse at right 50% bottom -80px, rgba(var(--spice-rgb-sidebar), 0.55), var(--spice-main) 60%);
+    background-color: rgba(0, 0, 0, 0.5);
     border-top: 0;
     min-width: 518px;
 }
@@ -421,7 +435,7 @@ html.sidebar-hide-text .GlueDropTarget span {
 }
 
 .progress-bar {
-    --progress-bar-height: 2px;
+    --progress-bar-height: 5px;
     --fg-color: var(--spice-button);
     --bg-color: rgba(var(--spice-rgb-text), .2);
 }
@@ -440,6 +454,7 @@ html.sidebar-hide-text .GlueDropTarget span {
 .minimal-player .volume-bar {
     flex: 0 1 70px;
 }
+
 .extra-minimal-player .player-controls__buttons {
     width: 64px;
 }
@@ -586,7 +601,7 @@ li.GlueDropTarget {
     color: var(--spice-text);
     background-color: var(--spice-button);
     opacity: 0;
-    transition: opacity,left 0.2s ease;
+    transition: opacity .25s ease,left .25s ease;
 }
 
 .playback-bar:hover .prog-tooltip {
@@ -595,14 +610,14 @@ li.GlueDropTarget {
 
 /** Rearrange player bar */
 .main-nowPlayingBar-left {
-    order: 1;
+    order: 0;
     flex: 1;
     width: auto;
     min-width: 0 !important;
 }
 
 .main-nowPlayingBar-center {
-    order: 0;
+    order: 1;
     flex: 1;
     width: auto;
     min-width: unset !important;
@@ -620,7 +635,7 @@ li.GlueDropTarget {
 }
 
 .player-controls {
-    justify-content: flex-start;
+    justify-content: center;
     flex-direction: row;
 }
 
@@ -766,11 +781,11 @@ html.right-expanded-cover.buddyfeed-visible .main-coverSlotExpanded-container {
 }
 
 .main-coverSlotExpanded-container img {
-    border-radius: 4px;
+    border-radius: 15px;
 }
 
 .cover-art {
-    border-radius: 4px;
+    border-radius: 15px;
 }
 
 .main-nowPlayingWidget-coverExpanded .main-coverSlotCollapsed-container {
